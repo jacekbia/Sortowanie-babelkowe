@@ -29,12 +29,19 @@ void zamiana(float& a, float& b) // Praca na przekazanych zmiennych a nie liczba
 
 void Sortowanie(float tab[], int ile)
 {
-    //Sortowanie bąbelkowe 
+    //Sortowanie bąbelkowe ze strażnikiem
 
-    for (int i = 0; i < (ile - 1); i++)
-        for (int j = 0; j < (ile - 1); j++)  // j może być maksymalnie nr przedostatniej bo jest porównywane z następną liczbą
+    bool straznik;
+    do
+    {
+        straznik = 0;
+        for (int j = 0; j < (ile - 1); j++)
             if (tab[j] > tab[j + 1])
+            {
                 zamiana(tab[j], tab[j + 1]);
+                straznik = 1;
+            }
+    } while (straznik); //ponowne przeglądanie tablicy o ile ostatnio były jakieś zamiany
 }
 
 int main(int argc, char* argv[])
