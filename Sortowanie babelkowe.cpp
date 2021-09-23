@@ -20,19 +20,21 @@ void Wypisz(float tab[], int ile)
     cout << endl << endl;
 }
 
+void zamiana(float& a, float& b) // Praca na przekazanych zmiennych a nie liczbach
+{
+    float pomoc = a;
+    a = b;
+    b = pomoc;
+}
 
 void Sortowanie(float tab[], int ile)
 {
     //Sortowanie bąbelkowe 
 
-    for (int i=0;i<(ile-1);i++)
+    for (int i = 0; i < (ile - 1); i++)
         for (int j = 0; j < (ile - 1); j++)  // j może być maksymalnie nr przedostatniej bo jest porównywane z następną liczbą
-            if (tab[j] > tab[j+1])
-            {   // Ewentualna zamiana sąsiednich elementów jeśli są w złej kolejności
-                float pomoc = tab[j];
-                tab[j] = tab[j+1];
-                tab[j+1] = pomoc;
-            }
+            if (tab[j] > tab[j + 1])
+                zamiana(tab[j], tab[j + 1]);
 }
 
 int main(int argc, char* argv[])
